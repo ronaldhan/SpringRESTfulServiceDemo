@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+		
+	<!-- classPathEntry:数据库的JDBC驱动 -->
+	<classPathEntry location="C:\Users\dell\.m2\repository\mysql\mysql-connector-java\5.1.30\mysql-connector-java-5.1.30.jar" />
+	
+	<context id="oracle2tables" targetRuntime="MyBatis3Simple">
+	
+		<commentGenerator>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+	
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/test" userId="root" password="ronald">		
+		</jdbcConnection>
+		
+		<javaTypeResolver >
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		
+		<!-- targetProject:自动生成代码的位置 -->	
+		<javaModelGenerator targetPackage="com.bism.roadplan.modules.dp.entity" targetProject="roadplan">
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<sqlMapGenerator targetPackage="mappings"  targetProject="roadplan">
+		</sqlMapGenerator>
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.bism.roadplan.modules.dp.dao"  targetProject="roadplan">
+		</javaClientGenerator>
+		
+		<!-- tableName:用于自动生成代码的数据库表；domainObjectName:对应于数据库表的javaBean类名 -->
+		<!-- <table tableName="TB_COMMUNITY_PARK_SURVEY_DATA" domainObjectName="Communitypark" />
+		<table tableName="TB_OUTROAD_PARK_SURVEY_DATA" domainObjectName="Outroadpark" />
+		<table tableName="TB_OVERPASS_PARK_SURVEY_DATA" domainObjectName="Overpasspark" />
+		<table tableName="TB_PR_PARK_SURVEY_DATA" domainObjectName="Prpark" />
+		<table tableName="TB_PUBLIC_PARK_SURVEY_DATA" domainObjectName="Publicpark" />
+		<table tableName="TB_UNIT_PARK_SURVEY_DATA" domainObjectName="Unitpark" /> -->
+		<table tableName="user" domainObjectName="User" />
+	</context>
+		
+</generatorConfiguration>
